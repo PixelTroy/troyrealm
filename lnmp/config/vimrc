@@ -1,0 +1,54 @@
+" 运行模式。
+set nocompatible      " 非兼容vi模式。
+set history=400       " history存储长度。
+set autoread          " 文件修改之后自动载入。
+"set mouse=a          " 在所有的模式下面打开鼠标。
+set hlsearch          " 高亮search命中的文本。
+autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
+autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
+
+" 取消备份。
+set nobackup
+set nowb
+set noswapfile
+
+" 设置编码。
+set fileencodings=utf-8       " 设置文件的编码。
+set helplang=cn               " 设置使用中文的帮助。
+set fencs=utf8,gbk,gb2312,gb18030
+set termencoding=utf-8
+set encoding=utf-8
+
+" 显示设置。
+set number                    " 显示行号。
+set guifont=Consolas:h11      " window gui模式下面的字体。
+set nowrap                    " 取消换行。
+syntax on                     " 打开语法高亮。
+colorscheme elflord           " 深蓝色配色方案。
+"set t_Co=256                 " the color, can be 8, 16, 32, 64 256
+au GUIEnter * simalt ~x       " windows下面打开最大化。
+let php_folding=0             " 打开自动折叠的功能。
+
+" 自动保留屏幕上的内容。
+set t_ti=
+set t_te=                     
+
+" 缩进。
+set autoindent
+
+" tab 空格。
+set expandtab
+set smarttab
+set shiftwidth=2
+autocmd FileType java,php setl shiftwidth=4
+autocmd FileType java,php setl tabstop=4
+autocmd FileType html,python,vim,javascript setlocal shiftwidth=2
+autocmd FileType html,python,vim,javascript setlocal tabstop=2
+
+" 快捷方式。
+map <C-Tab> :bnext<CR>
+map <S-Tab> :bp<CR>
+map <C-S>   :w!<CR>
+map <C-N>   :tabn<CR>
+map <C-B>   :tabp<CR>
+set pastetoggle=<F2>
